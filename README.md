@@ -1,4 +1,4 @@
-# 🌐 YukLearning Website
+# 🌐 Learning Website
 
 A personal learning website that contains various computer science topics I’ve studied and decided to share here.  
 This project serves both as my digital notes and as a resource for anyone interested in learning the same materials.  
@@ -6,7 +6,7 @@ This project serves both as my digital notes and as a resource for anyone intere
 ---
 
 ## ✨ Features
-- 📚 Collection of computer-related learning materials  
+- 📚 Collection of computer science learning materials  
 - 🗂 Organized by category and topic  
 - 🌍 Open source and free to access  
 
@@ -20,9 +20,6 @@ This project serves both as my digital notes and as a resource for anyone intere
 ---
 
 ## 🛠 Tech Stack
-- HTML, CSS, JavaScript  
-- (Add frameworks/tools you use, e.g. React, Next.js, etc.)  
-
+- **Frontend**: [Next.js](https://nextjs.org/) + [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+  
 ---
-
-## 📂 Project Structure
