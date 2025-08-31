@@ -1,25 +1,28 @@
-# 🌐 Learning Website
+# 👨‍💻 Personal Portfolio Website
 
-A personal learning website that contains various computer science topics I’ve studied and decided to share here.  
-This project serves both as my digital notes and as a resource for anyone interested in learning the same materials.  
-
----
-
-## ✨ Features
-- 📚 Collection of computer science learning materials  
-- 🗂 Organized by category and topic  
-- 🌍 Open source and free to access  
+Website portofolio pribadi yang berisi kumpulan proyek, pengalaman kerja, dan dokumentasi pembelajaran saya di bidang teknologi.  
+Tujuannya adalah menjadi pusat informasi tentang perjalanan saya sebagai developer sekaligus showcase karya-karya yang sudah saya buat.  
 
 ---
 
-## 🚀 Goals
-- Document my learning journey in computer science  
-- Share useful resources and notes with the community  
-- Encourage collaborative learning and knowledge sharing  
+## ✨ Fitur
+- 💼 **Daftar Proyek** – menampilkan berbagai proyek yang pernah saya kerjakan  
+- 🏢 **Pengalaman Kerja** – ringkasan pengalaman profesional dan kontribusi di berbagai perusahaan/organisasi  
+- 📚 **Dokumentasi Pembelajaran** – catatan belajar dan materi yang saya bagikan untuk publik  
+- 🌍 **Open Source** – sebagian proyek dan catatan saya terbuka untuk kolaborasi  
 
 ---
 
-## 🛠 Tech Stack
-- **Frontend**: [Next.js](https://nextjs.org/) + [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
-  
+## 🚀 Tujuan
+- Menampilkan proyek dan pengalaman kerja sebagai bukti kemampuan  
+- Membagikan dokumentasi pembelajaran untuk membantu orang lain  
+- Menjadi portofolio digital yang bisa diakses oleh recruiter, teman, maupun komunitas  
+
+---
+
+## 🛠 Tech Stack in this Website
+- **Frontend**: [Next.js](https://nextjs.org/) + [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)  
+- **UI/Styling**: [Tailwind CSS](https://tailwindcss.com/)  
+- **Deployment**: [Vercel](https://vercel.com/)  
+
 ---
