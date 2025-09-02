@@ -58,7 +58,7 @@ export default function Footer() {
                 </div>
 
                 {/* Links */}
-                <div className="flex flex-col md:flex-row gap-16 md:gap-24 text-sm leading-relaxed">
+                {/* <div className="flex flex-col md:flex-row gap-16 md:gap-24 text-sm leading-relaxed">
                     <div>
                         <h3 className="font-semibold mb-4 text-white">Explore</h3>
                         <ul className="space-y-2">
@@ -89,7 +89,7 @@ export default function Footer() {
                             ))}
                         </ul>
                     </div>
-                </div>
+                </div> */}
             </div>
         </footer>
     );

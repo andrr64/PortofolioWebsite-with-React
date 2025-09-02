@@ -1,7 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { SiReact, SiNextdotjs, SiSpringboot, SiKotlin, SiGo, SiFlutter, SiFirebase, SiTailwindcss, SiExpress, SiPostgresql, SiChartdotjs } from "react-icons/si";
+
+// Variabel global untuk mengatur apakah gambar ditampilkan
+const showImage = false;
 
 const projects = [
     {
@@ -34,7 +37,7 @@ const projects = [
         category: "Web App",
         type: "Portfolio",
         title: "Timedoor Website",
-        description: "Dummy website still under development.",
+        description: "Internal portfolio website showcasing projects developed during my internship at Timedoor.",
         techStack: [
             { name: "React.js", icon: <SiReact className="inline w-4 h-4 mr-1" /> },
             { name: "Go Backend", icon: <SiGo className="inline w-4 h-4 mr-1" /> },
@@ -52,7 +55,6 @@ const projects = [
         ],
         image: "https://via.placeholder.com/300x180.png?text=Keuanganku+Mobile",
     },
-    // Dummy projects tambahan
     {
         category: "Web App",
         type: "Dashboard",
@@ -91,11 +93,69 @@ const projects = [
         image: "https://via.placeholder.com/300x180.png?text=ManagePro",
     },
 ];
+// Tambahan project baru
+projects.push(
+    {
+        category: "AI Project",
+        type: "Vehicle Security",
+        title: "AI-Powered Vehicle Theft Detection System",
+        description: "A home-based system that detects unauthorized access to motorcycles using AI, YOLO, and FastAPI.",
+        techStack: [
+            { name: "Machine Learning", icon: <SiGo className="inline w-4 h-4 mr-1" /> },
+            { name: "Computer Vision", icon: <SiGo className="inline w-4 h-4 mr-1" /> },
+            { name: "FastAPI", icon: <SiGo className="inline w-4 h-4 mr-1" /> },
+            { name: "YOLO", icon: <SiGo className="inline w-4 h-4 mr-1" /> },
+            { name: "System Architecture", icon: <SiGo className="inline w-4 h-4 mr-1" /> },
+        ],
+        image: "https://via.placeholder.com/300x180.png?text=Vehicle+Theft+Detection",
+    },
+    {
+        category: "Web App",
+        type: "E-Commerce",
+        title: "Eleganza",
+        description: "Full-stack fashion e-commerce website featuring modern UI and robust backend.",
+        techStack: [
+            { name: "MERN Stack", icon: <SiReact className="inline w-4 h-4 mr-1" /> },
+            { name: "RESTful API", icon: <SiExpress className="inline w-4 h-4 mr-1" /> },
+            { name: "NoSQL Database", icon: <SiPostgresql className="inline w-4 h-4 mr-1" /> },
+            { name: "UI/UX Design", icon: <SiTailwindcss className="inline w-4 h-4 mr-1" /> },
+        ],
+        image: "https://via.placeholder.com/300x180.png?text=Eleganza",
+    },
+    {
+        category: "Web App",
+        type: "AI Project",
+        title: "AI-Powered Drowsiness Detection for Drivers",
+        description: "Monitors driver alertness in real-time and triggers alerts if drowsiness is detected.",
+        techStack: [
+            { name: "Machine Learning", icon: <SiGo className="inline w-4 h-4 mr-1" /> },
+            { name: "Computer Vision", icon: <SiGo className="inline w-4 h-4 mr-1" /> },
+            { name: "YOLO", icon: <SiGo className="inline w-4 h-4 mr-1" /> },
+            { name: "OpenCV", icon: <SiGo className="inline w-4 h-4 mr-1" /> },
+            { name: "Real-Time Monitoring", icon: <SiGo className="inline w-4 h-4 mr-1" /> },
+        ],
+        image: "https://via.placeholder.com/300x180.png?text=Drowsiness+Detection",
+    },
+    {
+        category: "Mobile App",
+        type: "Finance",
+        title: "Keuanganku Mobile",
+        description: "Mobile version of personal finance app for tracking expenses and income with intuitive UI.",
+        techStack: [
+            { name: "Flutter", icon: <SiFlutter className="inline w-4 h-4 mr-1" /> },
+            { name: "Cross-Platform", icon: <SiFlutter className="inline w-4 h-4 mr-1" /> },
+            { name: "UI/UX Design", icon: <SiTailwindcss className="inline w-4 h-4 mr-1" /> },
+        ],
+        image: "https://via.placeholder.com/300x180.png?text=Keuanganku+Mobile",
+    }
+);
 
-// Komponen ProjectCard
 function ProjectCard({ project }: { project: typeof projects[0] }) {
     return (
-        <div className="bg-white dark:bg-gray-700 rounded-2xl p-5 shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 cursor-pointer border border-transparent hover:border-blue-300 dark:hover:border-blue-500 overflow-hidden flex flex-col justify-between">
+        <a
+            href="#"
+            className="bg-white dark:bg-gray-700 rounded-2xl p-5 shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 cursor-pointer border border-transparent hover:border-blue-300 dark:hover:border-blue-500 overflow-hidden flex flex-col justify-between"
+        >
             <div>
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2 mb-3">
@@ -108,11 +168,13 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
                 </div>
 
                 {/* Project Image */}
-                <img
-                    src={project.image}
-                    alt={project.title}
-                    className="rounded-xl mb-4 w-full h-44 object-cover shadow-sm hover:shadow-lg transition-shadow duration-300"
-                />
+                {showImage && (
+                    <img
+                        src={project.image}
+                        alt={project.title}
+                        className="rounded-xl mb-4 w-full h-44 object-cover shadow-sm hover:shadow-lg transition-shadow duration-300"
+                    />
+                )}
 
                 {/* Title */}
                 <h3 className="font-bold text-lg sm:text-xl text-gray-900 dark:text-gray-100 mb-1">
@@ -137,13 +199,11 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
                 </div>
             </div>
 
-            <button className="self-start inline-flex items-center bg-blue-800 text-white text-xs sm:text-sm font-semibold rounded-full px-4 py-2 hover:bg-blue-900 dark:hover:bg-blue-500 transition-all duration-300 shadow hover:shadow-lg transform hover:-translate-y-1">
-                View Project
-                <span className="ml-2 text-[10px] sm:text-xs">→</span>
-            </button>
-
-        </div>
-
+            {/* Optional: Tombol kecil tetap bisa ada */}
+            <span className="mt-4 text-blue-700 dark:text-blue-400 font-semibold text-sm sm:text-base hover:underline">
+                View Project →
+            </span>
+        </a>
     );
 }
 

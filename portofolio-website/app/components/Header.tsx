@@ -8,7 +8,7 @@ const menuItems = [
     { menu: "Home", link: "#" },
     { menu: "Experiences", link: "#section-experience" },
     { menu: "Projects", link: "#section-projects" },
-    { menu: "Achievements", link: "#section-certificates" },
+    { menu: "Achievements", link: "#section-achievements" },
 ];
 
 export default function Header() {
