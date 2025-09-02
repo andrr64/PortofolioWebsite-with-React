@@ -34,7 +34,7 @@ export default function HeroSection() {
                 <div className="flex-1 max-w-xl lg:max-w-2xl space-y-6 text-center md:text-left">
                     <div className="space-y-3">
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 transition-colors duration-300">
-                            Hi, I'm <span className="text-blue-800 dark:text-blue-400">Andreas.</span>
+                            Hi, I'm <span className="text-blue-800 dark:text-blue-600">Andreas.</span>
                         </h1>
 
                         <p className="text-2xl sm:text-3xl font-medium text-gray-700 dark:text-gray-300 transition-colors duration-300">

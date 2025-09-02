@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
+import whiteLogo from "@/public/logo-white.svg";
 
 // Data menu
 const exploreLinks = [
@@ -24,10 +26,12 @@ export default function Footer() {
                 {/* Logo & Deskripsi */}
                 <div className="md:flex-1 max-w-xs">
                     <div className="flex items-center gap-2 mb-6">
-                        <img
+                        <Image
+                            src={whiteLogo}
                             alt="Andreas logo"
                             className="w-7 h-7"
-                            src="https://cdn-icons-png.flaticon.com/512/1903/1903162.png"
+                            width={28}
+                            height={28}
                         />
                         <span className="text-lg font-bold tracking-wide text-white">
                             Andreas
@@ -57,39 +61,6 @@ export default function Footer() {
                     </button>
                 </div>
 
-                {/* Links */}
-                {/* <div className="flex flex-col md:flex-row gap-16 md:gap-24 text-sm leading-relaxed">
-                    <div>
-                        <h3 className="font-semibold mb-4 text-white">Explore</h3>
-                        <ul className="space-y-2">
-                            {exploreLinks.map((item, idx) => (
-                                <li key={idx}>
-                                    <a
-                                        className="hover:text-blue-500 transition-colors"
-                                        href={item.link}
-                                    >
-                                        {item.menu}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 className="font-semibold mb-4 text-white">Legal</h3>
-                        <ul className="space-y-2">
-                            {legalLinks.map((item, idx) => (
-                                <li key={idx}>
-                                    <a
-                                        className="hover:text-blue-500 transition-colors"
-                                        href={item.link}
-                                    >
-                                        {item.menu}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div> */}
             </div>
         </footer>
     );
