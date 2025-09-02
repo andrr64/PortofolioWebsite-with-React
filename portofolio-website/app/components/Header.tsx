@@ -6,10 +6,9 @@ import { FiSun, FiMoon } from "react-icons/fi";
 // Menu sebagai array of objects { menu, link }
 const menuItems = [
     { menu: "Home", link: "#" },
-    { menu: "About", link: "#about" },
-    { menu: "Services", link: "#services" },
-    { menu: "Portfolio", link: "#portfolio" },
-    { menu: "Contact", link: "#contact" },
+    { menu: "Experiences", link: "#section-experience" },
+    { menu: "Projects", link: "#section-projects" },
+    { menu: "Achievements", link: "#section-certificates" },
 ];
 
 export default function Header() {
@@ -28,23 +27,34 @@ export default function Header() {
                         Andreas
                     </span>
                 </a>
+                <ul className="font-medium flex flex-col md:flex-row md:space-x-8 p-4 md:p-0 mt-4 md:mt-0 border md:border-0 rounded-lg bg-gray-50 dark:bg-gray-900 border-gray-100 dark:border-gray-700">
+                    {menuItems.map((item) => (
+                        <li key={item.menu}>
+                            <button
+                                onClick={() => {
+                                    if (item.link === "#") {
+                                        window.scrollTo({ top: 0, behavior: "smooth" }); // scroll ke atas
+                                    } else {
+                                        const target = document.querySelector(item.link);
+                                        if (target) {
+                                            window.scrollTo({
+                                                top: (target as HTMLElement).offsetTop - 128, // offset navbar
+                                                behavior: "smooth",
+                                            });
+                                        }
+                                    }
+                                    setIsOpen(false); // tutup menu mobile
+                                }}
+                                className="relative text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-300 group"
+                            >
+                                {item.menu}
+                                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-500 dark:bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                            </button>
+                        </li>
+                    ))}
 
-                {/* Menu */}
-                <div className={`${isOpen ? "block" : "hidden"} w-full md:block md:w-auto`}>
-                    <ul className="font-medium flex flex-col md:flex-row md:space-x-8 p-4 md:p-0 mt-4 md:mt-0 border md:border-0 rounded-lg bg-gray-50 dark:bg-gray-900 border-gray-100 dark:border-gray-700">
-                        {menuItems.map((item) => (
-                            <li key={item.menu}>
-                                <a
-                                    href={item.link}
-                                    className="relative text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-300 group"
-                                >
-                                    {item.menu}
-                                    <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-500 dark:bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                </ul>
+
 
                 {/* Hamburger + Theme Toggle */}
                 <div className="flex items-center space-x-3 md:space-x-4">

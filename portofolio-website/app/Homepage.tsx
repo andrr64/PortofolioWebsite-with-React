@@ -12,7 +12,7 @@ export default function Homepage() {
             <div className='py-16 flex bg-gray-100 dark:bg-gray-800 flex-col space-y-20 '>
                 <ExperienceSection />
                 <ProjectsSection />
-                <CertificatesSection /> 
+                <CertificatesSection />
             </div>
         </LayoutWithNavFoot>
     )

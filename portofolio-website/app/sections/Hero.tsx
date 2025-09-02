@@ -13,9 +13,22 @@ const techSkills = [
 ];
 
 export default function HeroSection() {
+    const scrollToSection = (selector: string) => {
+        const target = document.querySelector(selector);
+        if (target) {
+            window.scrollTo({
+                top: (target as HTMLElement).offsetTop - 128, // offset 128px
+                behavior: "smooth",
+            });
+        }
+    };
+
     return (
-        <section id="section-hero" className="min-h-screen w-full bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex items-center font-normal transition-colors duration-500">
-            <div className="max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-20 xl:px-24 flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+        <section
+            id="section-hero"
+            className="relative min-h-screen w-full bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex flex-col items-start font-normal transition-colors duration-500"
+        >
+            <div className="pt-30 max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-20 xl:px-24 flex flex-col-reverse md:flex-row items-center justify-between gap-12">
 
                 {/* LEFT SECTION */}
                 <div className="flex-1 max-w-xl lg:max-w-2xl space-y-6 text-center md:text-left">
@@ -50,10 +63,16 @@ export default function HeroSection() {
 
                     {/* CTA Buttons */}
                     <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                        <button className="bg-blue-800 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-900 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        <button
+                            onClick={() => scrollToSection("#section-projects")}
+                            className="bg-blue-800 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-900 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                        >
                             View Projects
                         </button>
-                        <button className="border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 dark:hover:bg-gray-600 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                        <button
+                            onClick={() => scrollToSection("#section-experience")}
+                            className="border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 dark:hover:bg-gray-600 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+                        >
                             My Experience
                         </button>
                     </div>
@@ -68,6 +87,22 @@ export default function HeroSection() {
                         loading="lazy"
                     />
                 </div>
+            </div>
+
+            {/* Wave */}
+            <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
+                <svg
+                    className="relative block w-full h-40"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 1440 320"
+                    preserveAspectRatio="none"
+                >
+                    <path
+                        fill="currentColor"
+                        d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                        className="text-gray-100 dark:text-gray-800"
+                    ></path>
+                </svg>
             </div>
         </section>
     );
