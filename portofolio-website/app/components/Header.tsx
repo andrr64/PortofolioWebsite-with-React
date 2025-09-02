@@ -24,7 +24,7 @@ export default function Header() {
             <div className="max-w-screen-xl mx-auto flex flex-wrap items-center justify-between p-4">
                 {/* Logo */}
                 <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
-                    <span className="self-center text-2xl sm:text-3xl font-extrabold font-serif dark:text-white tracking-wide">
+                    <span className="self-center text-2xl sm:text-3xl font-extrabold font-sans dark:text-white tracking-wide">
                         Andreas
                     </span>
                 </a>

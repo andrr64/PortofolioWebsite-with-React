@@ -5,38 +5,24 @@ import React from "react";
 // Data experience dipisahkan
 export const experiencesData = [
   {
-    role: "Graphic Designer",
-    company: "Dewa-Dewi Tech",
+    role: "Programming Teacher",
+    company: "Timedoor Academy",
     description:
-      "Creating creative and functional visual designs to support brands and digital products.",
-    period: "Yearly snapshot",
+      "Teaching programming concepts and guiding students through hands-on projects in web and mobile development.",
+    period: "2023 - Now",
   },
   {
-    role: "UI/UX Designer",
-    company: "Odama Studio",
+    role: "Software Engineer Intern",
+    company: "Timedoor Academy",
     description:
-      "Creating intuitive and engaging digital experiences through functional and aesthetic design.",
-    period: "2017 - 2019",
-  },
-  {
-    role: "UX Researcher",
-    company: "Korsa Studio",
-    description:
-      "Connecting data and design to create intuitive and effective user experiences.",
-    period: "2018 - 2021",
-  },
-  {
-    role: "Product Designer",
-    company: "Apple Inc.",
-    description:
-      "Designing innovative experiences that connect technology and aesthetics to create iconic products.",
-    period: "2021 - Now",
+      "Worked on developing internal tools and contributing to software projects under supervision.",
+    period: "2025",
   },
 ];
 
 export default function ExperienceSection() {
   return (
-    <section className="flex flex-col justify-center bg-gray-100 dark:bg-gray-800 py-20 transition-colors duration-300">
+    <section id="section-experience" className="flex flex-col justify-center">
       <main className="max-w-6xl mx-auto px-6 sm:px-10 w-full">
         {/* Header */}
         <div className="text-center mb-12">
@@ -44,7 +30,7 @@ export default function ExperienceSection() {
             Experience
           </span>
           <h1 className="mt-4 text-3xl sm:text-4xl font-bold leading-tight text-gray-900 dark:text-gray-100">
-            A Snapshot of My Creative Growth
+            A Snapshot of My <span className="text-blue-800 dark:text-blue-400">Creative Growth</span>
           </h1>
         </div>
 

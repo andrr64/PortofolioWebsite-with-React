@@ -14,7 +14,7 @@ const techSkills = [
 
 export default function HeroSection() {
     return (
-        <section className="min-h-screen w-full bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex items-center font-normal transition-colors duration-500">
+        <section id="section-hero" className="min-h-screen w-full bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex items-center font-normal transition-colors duration-500">
             <div className="max-w-7xl mx-auto px-6 sm:px-10 md:px-16 lg:px-20 xl:px-24 flex flex-col-reverse md:flex-row items-center justify-between gap-12">
 
                 {/* LEFT SECTION */}
@@ -39,11 +39,11 @@ export default function HeroSection() {
                         {techSkills.map((skill, idx) => (
                             <div
                                 key={skill.name}
-                                className="flex items-center gap-3 bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-full shadow-sm transition-transform transform hover:scale-105 hover:shadow-lg duration-300"
+                                className="flex items-center gap-3 bg-gray-100 dark:bg-gray-700 px-4 py-2 rounded-full shadow-sm transition-transform transform hover:scale-105 hover:shadow-lg duration-300"
                                 style={{ transitionDelay: `${idx * 100}ms` }}
                             >
                                 {skill.icon}
-                                <span className="font-semibold text-gray-800 dark:text-gray-100 text-sm">{skill.name}</span>
+                                <span className="font-semibold text-gray-700 dark:text-gray-100 text-sm">{skill.name}</span>
                             </div>
                         ))}
                     </div>
