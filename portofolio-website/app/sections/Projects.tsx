@@ -1,24 +1,67 @@
+"use client";
+
+import React from "react";
+
 export default function ProjectsSection() {
-    const projects = Array(6).fill({
-        category: "Development",
-        type: "Dashboard App",
-        title: "Cashify",
-        description:
-            "How do you create compelling presentations that wow your colleagues and impress your managers?",
-        image: "https://storage.googleapis.com/a1aa/image/054ae9da-9861-4f56-9abb-85478f325896.jpg",
-        deco: "https://storage.googleapis.com/a1aa/image/68c566ce-f5e5-4b70-f0c1-9a1d71b91010.jpg",
-    });
+    const projects = [
+        {
+            category: "Web App",
+            type: "Dashboard",
+            title: "Cashify",
+            description: "A modern financial dashboard app to track expenses and income efficiently.",
+            image: "https://via.placeholder.com/300x180.png?text=Cashify",
+        },
+        {
+            category: "Mobile App",
+            type: "E-commerce",
+            title: "ShopMate",
+            description: "An intuitive shopping app for Android and iOS with seamless checkout experience.",
+            image: "https://via.placeholder.com/300x180.png?text=ShopMate",
+        },
+        {
+            category: "Web App",
+            type: "Portfolio",
+            title: "DevPortfolio",
+            description: "A personal developer portfolio website to showcase projects and skills.",
+            image: "https://via.placeholder.com/300x180.png?text=DevPortfolio",
+        },
+        {
+            category: "Web App",
+            type: "Analytics",
+            title: "DataViz Pro",
+            description: "Interactive web dashboards for visualizing business metrics and KPIs.",
+            image: "https://via.placeholder.com/300x180.png?text=DataViz+Pro",
+        },
+        {
+            category: "Mobile App",
+            type: "Social Media",
+            title: "Chatter",
+            description: "A social networking app designed for connecting people through messaging.",
+            image: "https://via.placeholder.com/300x180.png?text=Chatter",
+        },
+        {
+            category: "Web App",
+            type: "Admin Panel",
+            title: "ManageIt",
+            description: "A full-featured admin panel for managing users, roles, and permissions.",
+            image: "https://via.placeholder.com/300x180.png?text=ManageIt",
+        },
+    ];
 
     return (
-        <section className="bg-[#F9FAFB] text-[#111827] py-16">
+        <section className="bg-gray-50 dark:bg-gray-800 py-16 transition-colors duration-500">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Section Header */}
-                <div className="text-center max-w-2xl mx-auto mb-12">
-                    <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
-                        My <span className="text-[#D35400]">Development Work</span>
+                {/* Header */}
+                <div className="text-center mb-12">
+                    <span className="inline-block border border-gray-900 dark:border-gray-100 rounded-full px-4 py-1 text-sm font-medium text-gray-900 dark:text-gray-100">
+                        Projects
+                    </span>
+                    
+                    <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-gray-100">
+                        My <span className="text-blue-800 dark:text-blue-400">Development Work</span>
                     </h2>
-                    <p className="mt-2 text-sm sm:text-base text-gray-600 font-normal">
-                        Diverse Range of Projects From Desktop to Web Applications
+                    <p className="mt-2 text-sm sm:text-base text-gray-600 dark:text-gray-300">
+                        Some of my recent projects from web and mobile development
                     </p>
                 </div>
 
@@ -27,54 +70,40 @@ export default function ProjectsSection() {
                     {projects.map((project, i) => (
                         <div
                             key={i}
-                            className="bg-white rounded-xl p-6 shadow-sm relative overflow-hidden border border-transparent hover:border-gray-200 transition"
+                            className="bg-white dark:bg-gray-700 rounded-2xl p-5 shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 cursor-pointer border border-transparent hover:border-blue-300 dark:hover:border-blue-500 overflow-hidden"
                         >
                             {/* Tags */}
-                            <div className="flex space-x-2 mb-3">
-                                <span className="text-[10px] font-semibold text-[#D35400] bg-[#FCE9D6] rounded-full px-2 py-0.5 inline-block">
+                            <div className="flex flex-wrap gap-2 mb-3">
+                                <span className="text-[10px] font-semibold text-blue-800 dark:text-blue-300 bg-blue-100 dark:bg-blue-900/20 rounded-full px-2 py-0.5">
                                     {project.category}
                                 </span>
-                                <span className="text-[10px] font-semibold text-[#3B82F6] bg-[#DBEAFE] rounded-full px-2 py-0.5 inline-block">
+                                <span className="text-[10px] font-semibold text-blue-900 dark:text-blue-400 bg-blue-200 dark:bg-blue-900/30 rounded-full px-2 py-0.5">
                                     {project.type}
                                 </span>
                             </div>
 
-                            {/* Icon */}
+                            {/* Project Image */}
                             <img
                                 src={project.image}
                                 alt={project.title}
-                                className="mb-3"
-                                width={20}
-                                height={20}
+                                className="rounded-xl mb-4 w-full h-44 object-cover shadow-sm hover:shadow-lg transition-shadow duration-300"
                             />
 
                             {/* Title */}
-                            <h3 className="font-extrabold text-base text-gray-900 mb-1">
+                            <h3 className="font-extrabold text-lg sm:text-xl text-gray-900 dark:text-gray-100 mb-1">
                                 {project.title}
                             </h3>
 
                             {/* Description */}
-                            <p className="text-xs sm:text-sm text-gray-600 mb-6 leading-relaxed">
+                            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
                                 {project.description}
                             </p>
 
                             {/* Button */}
-                            <button
-                                type="button"
-                                className="inline-flex items-center bg-[#D35400] text-white text-xs font-semibold rounded px-3 py-2 hover:bg-[#b34700] transition"
-                            >
+                            <button className="inline-flex items-center bg-blue-800 dark:bg-blue-600 text-white text-xs sm:text-sm font-semibold rounded-full px-4 py-2 hover:bg-blue-900 dark:hover:bg-blue-500 transition-all duration-300 shadow hover:shadow-lg transform hover:-translate-y-1">
                                 View Project
-                                <i className="fas fa-arrow-right ml-2 text-[10px]" />
+                                <span className="ml-2 text-[10px] sm:text-xs">→</span>
                             </button>
-
-                            {/* Decorative Icon */}
-                            <img
-                                src={project.deco}
-                                alt="Decoration"
-                                className="absolute bottom-4 right-4 opacity-10"
-                                width={40}
-                                height={40}
-                            />
                         </div>
                     ))}
                 </div>

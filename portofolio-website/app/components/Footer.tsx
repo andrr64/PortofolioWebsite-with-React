@@ -1,82 +1,78 @@
+// components/Footer.tsx
+"use client";
+
+import React from "react";
+
 export default function Footer() {
-  return (
-    <footer className="max-w-7xl mx-auto px-6 py-10 bg-[#F7F9FC]">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-y-8 gap-x-12 text-[#1B1B1B]">
-        {/* Contact */}
-        <div>
-          <h3 className="font-semibold text-base mb-6">Contact</h3>
-          <ul className="space-y-6 text-sm font-normal max-w-[180px]">
-            <li className="flex items-center space-x-3">
-              <div className="w-7 h-7 rounded-full bg-[#E6E8FF] flex items-center justify-center text-[#5C5FEF] text-xs">
-                <i className="fas fa-phone"></i>
-              </div>
-              <span>602–774–4735</span>
-            </li>
-            <li className="flex items-start space-x-3">
-              <div className="w-7 h-7 rounded-full bg-[#E6E8FF] flex items-center justify-center text-[#5C5FEF] text-xs mt-1">
-                <i className="fas fa-map-marker-alt"></i>
-              </div>
-              <span>
-                11022 South 51st Street Suite 105
-                <br />
-                Phoenix, AZ 85044
-              </span>
-            </li>
-            <li className="flex items-center space-x-3">
-              <div className="w-7 h-7 rounded-full bg-[#E6E8FF] flex items-center justify-center text-[#5C5FEF] text-xs">
-                <i className="fas fa-envelope"></i>
-              </div>
-              <span>hello@unifedui.com</span>
-            </li>
-          </ul>
-        </div>
+    return (
+        <footer className="bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 transition-colors duration-300">
+            <div className="max-w-[1200px] mx-auto px-6 py-12 flex flex-col md:flex-row md:justify-between md:items-start gap-12 md:gap-0">
 
-        {/* Navigate */}
-        <div>
-          <h3 className="font-semibold text-base mb-6">Navigate</h3>
-          <ul className="space-y-4 text-sm font-normal max-w-[140px]">
-            <li>Services</li>
-            <li>Success Stories</li>
-            <li>Discover</li>
-            <li>Care</li>
-            <li>Download App</li>
-          </ul>
-        </div>
+                {/* Logo & Deskripsi */}
+                <div className="md:flex-1 max-w-xs">
+                    <div className="flex items-center gap-2 mb-6">
+                        <img
+                            alt="Andreas logo"
+                            className="w-7 h-7"
+                            src="https://cdn-icons-png.flaticon.com/512/1903/1903162.png"
+                        />
+                        <span className="text-lg font-bold tracking-wide text-gray-900 dark:text-white">
+                            Andreas
+                        </span>
+                    </div>
+                    <p className="text-sm leading-relaxed mb-8 text-gray-600 dark:text-gray-400">
+                        Passionate Full-Stack Developer building modern web & mobile apps.
+                        Explore projects, learn about my work, and connect with me.
+                    </p>
 
-        {/* Solution */}
-        <div>
-          <h3 className="font-semibold text-base mb-6">Solution</h3>
-          <ul className="space-y-4 text-sm font-normal max-w-[140px]">
-            <li>Get in Touch</li>
-            <li>Technology</li>
-            <li>Who’re We?</li>
-            <li>Expertise</li>
-          </ul>
-        </div>
+                    {/* Social Icons */}
+                    <div className="flex gap-6 text-lg mb-10">
+                        <a aria-label="Twitter" className="hover:text-blue-500 dark:hover:text-blue-400 transition-colors" href="#">
+                            <i className="fab fa-x-twitter"></i>
+                        </a>
+                        <a aria-label="LinkedIn" className="hover:text-blue-500 dark:hover:text-blue-400 transition-colors" href="#">
+                            <i className="fab fa-linkedin-in"></i>
+                        </a>
+                        <a aria-label="Instagram" className="hover:text-pink-500 transition-colors" href="#">
+                            <i className="fab fa-instagram"></i>
+                        </a>
+                        <a aria-label="GitHub" className="hover:text-gray-900 dark:hover:text-white transition-colors" href="#">
+                            <i className="fab fa-github"></i>
+                        </a>
+                    </div>
 
-        {/* Discover */}
-        <div>
-          <h3 className="font-semibold text-base mb-6">Discover</h3>
-          <ul className="space-y-4 text-sm font-normal max-w-[140px]">
-            <li>Latest News</li>
-            <li>New Arrivals</li>
-            <li>Solution</li>
-            <li>Gain Profession</li>
-            <li>Career</li>
-          </ul>
-        </div>
+                    {/* Back to Top Button */}
+                    <button
+                        className="flex items-center gap-2 border border-gray-400 dark:border-gray-600 px-4 py-2 text-xs font-semibold tracking-widest uppercase rounded hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-all"
+                        type="button"
+                        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                    >
+                        <i className="fas fa-arrow-up"></i>
+                        BACK TO TOP
+                    </button>
+                </div>
 
-        {/* Follow Us */}
-        <div>
-          <h3 className="font-semibold text-base mb-6">Follow Us</h3>
-          <ul className="space-y-4 text-sm font-normal max-w-[140px]">
-            <li>Facebook</li>
-            <li>Instagram</li>
-            <li>LinkedIn</li>
-            <li>Twitter</li>
-          </ul>
-        </div>
-      </div>
-    </footer>
-  );
+                {/* Links */}
+                <div className="flex flex-col md:flex-row gap-16 md:gap-24 text-sm leading-relaxed">
+                    <div>
+                        <h3 className="font-semibold mb-4 text-gray-900 dark:text-white">Explore</h3>
+                        <ul className="space-y-2">
+                            <li><a className="hover:text-blue-500 dark:hover:text-blue-400 transition-colors" href="#">Projects</a></li>
+                            <li><a className="hover:text-blue-500 dark:hover:text-blue-400 transition-colors" href="#">Skills</a></li>
+                            <li><a className="hover:text-blue-500 dark:hover:text-blue-400 transition-colors" href="#">Experience</a></li>
+                            <li><a className="hover:text-blue-500 dark:hover:text-blue-400 transition-colors" href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 className="font-semibold mb-4 text-gray-900 dark:text-white">Legal</h3>
+                        <ul className="space-y-2">
+                            <li><a className="hover:text-blue-500 dark:hover:text-blue-400 transition-colors" href="#">Privacy Policy</a></li>
+                            <li><a className="hover:text-blue-500 dark:hover:text-blue-400 transition-colors" href="#">Terms of Service</a></li>
+                            <li><a className="hover:text-blue-500 dark:hover:text-blue-400 transition-colors" href="#">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    );
 }
