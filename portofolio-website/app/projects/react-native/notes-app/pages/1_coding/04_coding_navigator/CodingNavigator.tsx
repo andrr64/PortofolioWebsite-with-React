@@ -12,7 +12,7 @@ interface Tab {
   filePath: string;
   code: string;
   description: string[];
-  image?: any; // tambahkan optional image
+  image?: any; // optional
 }
 
 export default function CodingNavigator() {
@@ -28,7 +28,7 @@ export default function CodingNavigator() {
         'Tab: Home -> Homescreen, About -> AboutScreen.',
         'Atur warna aktif/inaktif, style tabBar, dan header style.',
       ],
-      image: gambarTab, // tambahkan gambar
+      image: gambarTab,
     },
     {
       id: 'stack',
@@ -53,18 +53,22 @@ export default function CodingNavigator() {
   };
 
   return (
-    <div className="p-6 bg-gray-100 w-full min-h-screen">
-      <h1 className="text-3xl font-bold mb-8">Coding Navigator</h1>
+    <div className="p-6 w-full min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors">
+      {/* Judul */}
+      <h1 className="text-3xl font-bold mb-8 text-gray-900 dark:text-gray-100">
+        Coding Navigator
+      </h1>
 
       {/* Tab Navigation */}
-      <div className="flex space-x-4 border-b">
+      <div className="flex space-x-4 border-b border-gray-300 dark:border-gray-700">
         {tabs.map(tab => (
           <button
             key={tab.id}
-            className={`py-2 px-4 font-medium ${activeTab === tab.id
-              ? 'border-b-2 border-blue-600 text-blue-600'
-              : 'text-gray-600'
-              }`}
+            className={`py-2 px-4 font-medium transition-colors ${
+              activeTab === tab.id
+                ? 'border-b-2 border-blue-600 text-blue-600 dark:text-blue-400'
+                : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+            }`}
             onClick={() => setActiveTab(tab.id)}
           >
             {tab.title}
@@ -73,29 +77,33 @@ export default function CodingNavigator() {
       </div>
 
       {/* File Path */}
-      <div className="text-xs p-5 text-gray-500 font-mono">
+      <div className="text-xs py-5 text-gray-500 dark:text-gray-400 font-mono">
         File: {currentTab.filePath}
       </div>
       
-      {/* Image Preview (hanya untuk TabNavigator) */}
+      {/* Image Preview */}
       {currentTab.image && (
         <div className="mb-4">
-          <Image src={currentTab.image} alt={'Tabnavigator '} />
+          <Image
+            src={currentTab.image}
+            alt={currentTab.title}
+            style={{ maxHeight: '480px', width: '100%', objectFit: 'contain' }}
+            className="rounded-xl shadow-md"
+          />
         </div>
       )}
 
       {/* Description */}
-      <ul className="list-disc list-inside text-gray-700 mb-4">
+      <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 mb-4 space-y-1">
         {currentTab.description.map((desc, i) => (
           <li key={i}>{desc}</li>
         ))}
       </ul>
 
-
       {/* Code Display */}
       <pre
-        className="bg-gray-900 text-green-400 p-4 rounded-xl shadow-md overflow-x-auto"
         onCopy={handleCopy}
+        className="bg-gray-900 dark:bg-gray-800 text-green-400 p-4 rounded-xl shadow-md overflow-x-auto"
       >
         {currentTab.code}
       </pre>

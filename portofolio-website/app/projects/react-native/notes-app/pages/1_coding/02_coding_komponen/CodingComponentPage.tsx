@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { notecard_code } from '../02_coding_komponen/codes/notes';
 import { add_note_modal_code } from './codes/add_note_modal';
 import noteCard from '@/public/notes_app/notesapp_note_card_component.jpg';
-import modalImage from '@/public/notes_app/notesapp_modal_tambah_notes.jpg'
+import modalImage from '@/public/notes_app/notesapp_modal_tambah_notes.jpg';
 import Image from 'next/image';
 
 interface ComponentTab {
@@ -13,7 +13,7 @@ interface ComponentTab {
     filePath: string;
     code: string;
     description: string[];
-    image?: any; // optional
+    image?: any;
     height?: number;
 }
 
@@ -47,26 +47,27 @@ export default function CodingComponentPage() {
                 'KeyboardAvoidingView digunakan agar keyboard tidak menutupi input saat mengetik.',
             ],
             image: modalImage,
-            height: 480
+            height: 480,
         },
     ];
 
     const [activeTab, setActiveTab] = useState<'notecard' | 'modal'>('notecard');
-
     const currentTab = tabs.find((tab) => tab.id === activeTab)!;
 
     return (
-        <main className="p-6 bg-gray-100 w-full min-h-screen">
-            <h1 className="text-3xl font-bold mb-8">Coding Komponen</h1>
+        <main className="p-6 w-full min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors">
+            <h1 className="text-3xl font-bold mb-8 text-gray-900 dark:text-gray-100">
+                Coding Komponen
+            </h1>
 
             {/* Tab Navigation */}
-            <div className="flex gap-4 mb-6 border-b">
+            <div className="flex gap-4 mb-6 border-b border-gray-300 dark:border-gray-700">
                 {tabs.map((tab) => (
                     <button
                         key={tab.id}
-                        className={`py-2 px-4 font-medium ${activeTab === tab.id
-                            ? 'border-b-2 border-blue-600 text-blue-600'
-                            : 'text-gray-600'
+                        className={`py-2 px-4 font-medium transition-colors ${activeTab === tab.id
+                                ? 'border-b-2 border-blue-600 text-blue-600 dark:text-blue-400'
+                                : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
                             }`}
                         onClick={() => setActiveTab(tab.id)}
                     >
@@ -76,7 +77,7 @@ export default function CodingComponentPage() {
             </div>
 
             {/* File Path */}
-            <div className="text-xs text-gray-500 font-mono mb-4">
+            <div className="text-xs text-gray-500 dark:text-gray-400 font-mono mb-4">
                 File: {currentTab.filePath}
             </div>
 
@@ -86,23 +87,21 @@ export default function CodingComponentPage() {
                     <Image
                         src={currentTab.image}
                         alt={currentTab.title}
-                        height={currentTab.height ?? 256} // pakai height dari tab, default 256
+                        height={currentTab.height ?? 256}
                         className="rounded-xl shadow-md"
                     />
                 </div>
             )}
 
-
             {/* Description */}
-            <ul className="list-disc list-inside text-gray-700 mb-4">
+            <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 mb-4 space-y-1">
                 {currentTab.description.map((desc, i) => (
                     <li key={i}>{desc}</li>
                 ))}
             </ul>
 
             {/* Code */}
-
-            <pre className="bg-gray-900 text-green-400 p-4 rounded-xl shadow-md overflow-x-auto ">
+            <pre className="bg-gray-900 dark:bg-gray-800 text-green-400 p-4 rounded-xl shadow-md overflow-x-auto">
                 <code>{currentTab.code}</code>
             </pre>
         </main>

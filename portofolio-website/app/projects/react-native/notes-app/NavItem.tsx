@@ -35,10 +35,15 @@ const NavItem: React.FC<NavItemProps> = ({
 }) => {
     const hasSubmenu = item.submenu && item.submenu.length > 0;
 
-    const activeClasses = 'bg-[#F0E9FF] text-black';
-    const inactiveClasses = 'text-gray-600 hover:bg-gray-100';
+    // Kelas aktif & inaktif
+    const activeClasses =
+        'bg-[#F0E9FF] text-black dark:bg-[#2A1B4B] dark:text-white';
+    const inactiveClasses =
+        'text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800';
+
+    // Icon
     const iconActiveClasses = 'text-[#7C5DFA]';
-    const iconInactiveClasses = 'text-gray-400';
+    const iconInactiveClasses = 'text-gray-400 dark:text-gray-500';
 
     return (
         <div>
@@ -58,8 +63,7 @@ const NavItem: React.FC<NavItemProps> = ({
 
                 {hasSubmenu && (
                     <i
-                        className={`fas fa-chevron-${isOpen ? 'up' : 'down'
-                            } text-gray-400 text-xs transition-transform duration-300`}
+                        className={`fas fa-chevron-${isOpen ? 'up' : 'down'} text-gray-400 dark:text-gray-500 text-xs transition-transform duration-300`}
                     ></i>
                 )}
             </div>
@@ -70,7 +74,7 @@ const NavItem: React.FC<NavItemProps> = ({
                     }`}
             >
                 {hasSubmenu && (
-                    <div className="pl-12 pr-4 pt-2 pb-1 space-y-1 ml-2 border-l-2 border-[#E8E1FF]">
+                    <div className="pl-12 pr-4 pt-2 pb-1 space-y-1 ml-2 border-l-2 border-[#E8E1FF] dark:border-[#3C2F70]">
                         {item.submenu?.map((subItem) => (
                             <a
                                 key={subItem.id}
@@ -80,13 +84,12 @@ const NavItem: React.FC<NavItemProps> = ({
                                     onSubItemClick(subItem.id);
                                 }}
                                 className={`block text-sm rounded-md px-3 py-2 transition-colors duration-200 cursor-pointer ${activeSubItem === subItem.id
-                                    ? 'text-[#7C5DFA] bg-purple-50 font-semibold'
-                                    : 'text-gray-500 hover:bg-gray-100'
+                                        ? 'text-[#7C5DFA] bg-purple-50 font-semibold dark:bg-[#372054]'
+                                        : 'text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800'
                                     }`}
                             >
                                 {subItem.label}
                             </a>
-
                         ))}
                     </div>
                 )}

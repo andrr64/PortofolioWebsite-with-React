@@ -14,6 +14,7 @@ import CodingScreenPage from './pages/1_coding/03_coding_screen/CodingScreenPage
 import CodingNavigator from './pages/1_coding/04_coding_navigator/CodingNavigator';
 import BuildApkPage from './pages/2_jalankan_aplikasi/BuildApkPage';
 import KuisPage from './pages/3_kuis/KuisPage';
+import LayoutWithNavFoot from '@/app/components/PageWrapperWithNav';
 
 type MenuItem = {
   id: string;
@@ -52,7 +53,7 @@ const menuItems: MenuItem[] = [
     id: 'menu3',
     icon: 'fas fa-cogs',
     label: '3. Jalankan Aplikasi',
-    component: <BuildApkPage/>,
+    component: <BuildApkPage />,
   },
   {
     id: 'menu4',
@@ -79,18 +80,19 @@ const App: React.FC = () => {
   const activeMenu = findMenuById(menuItems, selected);
 
   return (
-    <div className="flex h-screen font-sans bg-white">
-      {/* Sidebar */}
-      <div className="w-60 flex-shrink-0 overflow-y-auto border-r border-gray-200">
-        <Sidebar menuItems={menuItems} onSelected={setSelected} />
-      </div>
+    <LayoutWithNavFoot>
+      <div className="flex h-screen font-sans bg-white dark:bg-gray-900 transition-colors duration-300">
+        {/* Sidebar */}
+        <div className="w-60 flex-shrink-0 overflow-y-auto border-r border-gray-200 dark:border-gray-700">
+          <Sidebar menuItems={menuItems} onSelected={setSelected} />
+        </div>
 
-      {/* Content */}
-      <div className="flex-1 overflow-y-auto">
-        {activeMenu?.component ?? <div className="p-8">Pilih menu</div>}
+        {/* Content */}
+        <div className="flex-1 overflow-y-auto bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+          {activeMenu?.component ?? <div className="p-8 text-gray-700 dark:text-gray-200">Pilih menu</div>}
+        </div>
       </div>
-    </div>
-
+    </LayoutWithNavFoot>
   );
 };
 

@@ -78,16 +78,21 @@ export default function CodingScreenPage() {
   };
 
   return (
-    <div className="p-6 bg-gray-100 w-full min-h-screen">
-      <h1 className="text-3xl font-bold mb-8">Coding Layar/Screen</h1>
+    <div className="p-6 w-full min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors">
+      <h1 className="text-3xl font-bold mb-8 text-gray-900 dark:text-gray-100">
+        Coding Layar/Screen
+      </h1>
 
       {/* Tab Navigation */}
-      <div className="flex space-x-4 border-b">
+      <div className="flex space-x-4 border-b border-gray-300 dark:border-gray-700">
         {tabs.map(tab => (
           <button
             key={tab.id}
-            className={`py-2 px-4 font-medium ${activeTab === tab.id ? 'border-b-2 border-blue-600 text-blue-600' : 'text-gray-600'
-              }`}
+            className={`py-2 px-4 font-medium transition-colors ${
+              activeTab === tab.id
+                ? 'border-b-2 border-blue-600 text-blue-600 dark:text-blue-400'
+                : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+            }`}
             onClick={() => setActiveTab(tab.id)}
           >
             {tab.title}
@@ -96,7 +101,7 @@ export default function CodingScreenPage() {
       </div>
 
       {/* File Path */}
-      <div className="text-xs py-5 text-gray-500 font-mono">
+      <div className="text-xs py-5 text-gray-500 dark:text-gray-400 font-mono">
         File: {currentTab.filePath}
       </div>
 
@@ -113,14 +118,17 @@ export default function CodingScreenPage() {
       )}
 
       {/* Description */}
-      <ul className="list-disc list-inside text-gray-700 mb-4">
+      <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 mb-4 space-y-1">
         {currentTab.description.map((desc, i) => (
           <li key={i}>{desc}</li>
         ))}
       </ul>
 
       {/* Code Display */}
-      <pre className="bg-gray-900 text-green-400 p-4 rounded-xl shadow-md overflow-x-auto ">
+      <pre
+        onCopy={handleCopy}
+        className="bg-gray-900 dark:bg-gray-800 text-green-400 p-4 rounded-xl shadow-md overflow-x-auto"
+      >
         {currentTab.code}
       </pre>
     </div>

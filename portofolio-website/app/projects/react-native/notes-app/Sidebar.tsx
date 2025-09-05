@@ -41,18 +41,20 @@ const Sidebar: React.FC<SidebarProps> = ({ menuItems, onSelected }) => {
     };
 
     return (
-        <aside className="w-60 flex flex-col bg-white flex-shrink-0">
+        <aside className="w-60 flex flex-col bg-white dark:bg-gray-900 flex-shrink-0 transition-colors duration-300">
             {/* Logo & App Title */}
-            <div className="px-6 py-4 flex flex-col items-start border-b border-gray-200">
-                <span className="font-bold text-2xl text-black">Andreas Learning</span>
-                <span className="text-gray-500 text-sm mt-1">
+            <div className="px-6 py-4 flex flex-col items-start border-b border-gray-200 dark:border-gray-700">
+                <span className="font-bold text-2xl text-black dark:text-white">
+                    Andreas Learning
+                </span>
+                <span className="text-gray-500 dark:text-gray-400 text-sm mt-1">
                     Notes App with React Native
                 </span>
             </div>
 
             {/* Menu */}
             <nav className="flex-grow px-4 py-6 space-y-2 overflow-y-auto">
-                <p className="text-gray-400 text-xs font-semibold uppercase px-3 pb-2">
+                <p className="text-gray-400 dark:text-gray-500 text-xs font-semibold uppercase px-3 pb-2">
                     Materi
                 </p>
                 {menuItems.map((item) => (

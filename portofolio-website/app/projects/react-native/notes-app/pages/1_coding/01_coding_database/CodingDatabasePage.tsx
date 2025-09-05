@@ -52,19 +52,28 @@ export default function CodingDatabasePage() {
     };
 
     return (
-        <main className="p-6 bg-gray-100 w-full min-h-screen">
-            <h1 className="text-3xl font-bold mb-8">Coding Database</h1>
+        <main
+            className="flex-1 min-h-screen p-8 
+                       bg-gradient-to-r from-[#F7F7FC] to-[#F0F0FA] 
+                       dark:from-gray-900 dark:to-gray-800 
+                       text-gray-900 dark:text-gray-100 
+                       transition-colors duration-300"
+        >
+            <h1 className="text-3xl font-bold mb-8">
+                Coding Database
+            </h1>
 
             {/* Tab Navigation */}
-            <div className="flex gap-4 mb-6 border-b">
+            <div className="flex gap-4 mb-6 border-b border-gray-300 dark:border-gray-700">
                 {tabs.map(tab => (
                     <button
                         key={tab.id}
-                        className={`py-2 px-4 font-medium ${activeTab === tab.id
-                            ? 'border-b-2 border-purple-600 text-purple-600'
-                            : 'text-gray-600'
-                            }`}
                         onClick={() => setActiveTab(tab.id)}
+                        className={`py-2 px-4 font-medium transition-colors duration-200
+                            ${activeTab === tab.id
+                                ? 'border-b-2 border-purple-600 text-purple-600 dark:text-purple-400'
+                                : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
+                            }`}
                     >
                         {tab.title}
                     </button>
@@ -72,19 +81,22 @@ export default function CodingDatabasePage() {
             </div>
 
             {/* File Path */}
-            <div className="text-xs text-gray-500 font-mono mb-4">
+            <div className="text-xs font-mono text-gray-600 dark:text-gray-400 mb-4">
                 File: {currentTab.filePath}
             </div>
 
             {/* Description */}
-            <ul className="list-disc list-inside text-gray-700 mb-4">
+            <ul className="list-disc list-inside mb-6 space-y-1 text-gray-700 dark:text-gray-300">
                 {currentTab.description.map((desc, i) => (
                     <li key={i}>{desc}</li>
                 ))}
             </ul>
 
             {/* Code */}
-            <pre className="bg-gray-900 text-green-400 p-4 rounded-xl shadow-md overflow-x-auto ">
+            <pre
+                onCopy={handleCopy}
+                className="bg-gray-900 dark:bg-gray-950 text-green-400 p-4 rounded-xl shadow-md overflow-x-auto text-sm font-mono"
+            >
                 {currentTab.code}
             </pre>
         </main>

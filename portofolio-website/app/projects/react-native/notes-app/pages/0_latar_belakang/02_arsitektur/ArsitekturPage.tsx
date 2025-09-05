@@ -28,32 +28,36 @@ export default function ArsitekturPage() {
     ];
 
     return (
-    <main className="flex-1 bg-gradient-to-r from-[#F7F7FC] to-[#F0F0FA] p-8">
-            <h1 className="text-3xl font-bold mb-10">Arsitektur Aplikasi</h1>
+        <main className="flex-1 min-h-screen bg-gradient-to-r from-[#F7F7FC] to-[#F0F0FA] dark:from-gray-900 dark:to-gray-950 p-8 transition-colors duration-300">
+            <h1 className="text-3xl font-bold mb-10 text-gray-800 dark:text-gray-100">
+                Arsitektur Aplikasi
+            </h1>
 
             {/* Gambar Arsitektur */}
             <div className="flex justify-center mb-12">
                 <Image
                     src={arsitekturImg}
-                    alt="Arsitektur Notes App"
+                    alt="Diagram arsitektur aplikasi Notes App"
                     className="rounded-2xl shadow-lg max-h-[560px] w-auto object-contain"
                     priority
                 />
             </div>
 
             {/* Penjelasan tiap layer */}
-            <div className="flex flex-wrap gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {items.map((item) => (
                     <div
                         key={item.id}
-                        className="flex-1 min-w-[320px] max-w-[500px] bg-gray-50 border border-gray-200 shadow-md rounded-2xl overflow-hidden hover:shadow-lg transition"
+                        className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-md rounded-2xl hover:shadow-lg transition overflow-hidden"
                     >
-                        <div className="p-5 space-y-3">
-                            <h2 className="text-xl font-semibold">{item.title}</h2>
-                            <p className="text-sm text-gray-500">
+                        <div className="p-6 space-y-3">
+                            <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">
+                                {item.title}
+                            </h2>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">
                                 <span className="font-semibold">Tipe:</span> {item.type}
                             </p>
-                            <p className="text-gray-700 text-base">
+                            <p className="text-gray-700 dark:text-gray-300 text-base leading-relaxed">
                                 <span className="font-semibold">Penjelasan:</span> {item.desc}
                             </p>
                         </div>
