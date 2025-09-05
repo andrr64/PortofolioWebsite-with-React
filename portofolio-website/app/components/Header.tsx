@@ -7,10 +7,10 @@ import blackLogo from "@/public/logo-black.svg";
 import whiteLogo from "@/public/logo-white.svg";
 
 const menuItems = [
-    { menu: "Home", link: "#" },
-    { menu: "Experiences", link: "#section-experience" },
-    { menu: "Projects", link: "#section-projects" },
-    { menu: "Achievements", link: "#section-achievements" },
+    { menu: "Home", link: "#", absoluteLink: "/" },
+    { menu: "Experiences", link: "#section-experience", absoluteLink: "/#section-experience" },
+    { menu: "Projects", link: "#section-projects", absoluteLink: "/#section-projects" },
+    { menu: "Achievements", link: "#section-achievements", absoluteLink: "/#section-achievements" },
 ];
 
 export default function Header() {
@@ -19,6 +19,26 @@ export default function Header() {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => setMounted(true), []);
+    const handleMenuClick = (item: { menu: string; link: string; absoluteLink: string }) => {
+        if (window.location.pathname === "/") {
+            // lagi di root → scroll pakai link biasa
+            if (item.link === "#") {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            } else {
+                const target = document.querySelector(item.link);
+                if (target) {
+                    window.scrollTo({
+                        top: (target as HTMLElement).offsetTop - 128,
+                        behavior: "smooth",
+                    });
+                }
+            }
+        } else {
+            // bukan di root → redirect ke absolute link
+            window.location.href = item.absoluteLink;
+        }
+        setIsOpen(false);
+    };
 
     return (
         <header className="sticky top-0 z-50 bg-white border-b border-gray-200 dark:bg-gray-900 dark:border-gray-700 transition-colors duration-300">
@@ -41,20 +61,7 @@ export default function Header() {
                         {menuItems.map((item) => (
                             <li key={item.menu}>
                                 <button
-                                    onClick={() => {
-                                        if (item.link === "#") {
-                                            window.scrollTo({ top: 0, behavior: "smooth" });
-                                        } else {
-                                            const target = document.querySelector(item.link);
-                                            if (target) {
-                                                window.scrollTo({
-                                                    top: (target as HTMLElement).offsetTop - 128,
-                                                    behavior: "smooth",
-                                                });
-                                            }
-                                        }
-                                        setIsOpen(false);
-                                    }}
+                                    onClick={() => handleMenuClick(item)}
                                     className="relative text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-300 group"
                                 >
                                     {item.menu}

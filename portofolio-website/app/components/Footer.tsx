@@ -20,7 +20,7 @@ const legalLinks = [
 
 export default function Footer() {
     return (
-        <footer className="bg-gray-900 text-gray-300 transition-colors duration-300">
+        <footer className="bg-gray-900 text-gray-300 border-t border-gray-700 transition-colors duration-300">
             <div className="max-w-[1200px] mx-auto px-6 py-12 flex flex-col md:flex-row md:justify-between md:items-start gap-12 md:gap-0">
 
                 {/* Logo & Deskripsi */}
